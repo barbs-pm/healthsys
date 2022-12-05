@@ -1,0 +1,18 @@
+<div>
+  <div>
+  <br><br>
+  
+    <p>Appointment:</>
+    <%= @evaluation.appointment %>
+    <br>
+  
+    <p>Opinion:</>
+    <%= @evaluation.opinion %>
+    <br>
+  
+  </div>
+  <div>
+    <%= link_to 'Edit', edit_evaluation_path(@evaluation), class: 'btn btn-secondary' %>
+    <%= link_to 'Delete', @evaluation, data: { turbo_method: :delete, turbo_confirm: 'Are ou sure?' }, class: 'btn btn-secondary' %>
+  </div>
+</div>

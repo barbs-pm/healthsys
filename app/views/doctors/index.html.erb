@@ -1,0 +1,54 @@
+<h3>
+  <div>
+    <br>
+    Doctors (<%= @doctors.count %>)
+  </div>
+</h3>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+    	  
+        <th scope="col">Name</th>
+        
+        <th scope="col">Birthday</th>
+        
+        <th scope="col">Cpf</th>
+        
+        <th scope="col">Phone</th>
+        
+        <th scope="col">Clinic</th>
+        
+        <th scope="col">Crm</th>
+        
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @doctors.each do |doctor| %>
+        <%= content_tag :tr, id: dom_id(doctor), class: dom_class(doctor) do %>
+          <td><%= link_to doctor.id, doctor %></td>
+          
+            <td><%= doctor.name %></td>
+          
+            <td><%= doctor.birthday %></td>
+          
+            <td><%= doctor.cpf %></td>
+          
+            <td><%= doctor.phone %></td>
+          
+            <td><%= doctor.clinic %></td>
+          
+            <td><%= doctor.crm %></td>
+          
+          <td>
+            <%= link_to 'Edit', edit_doctor_path(doctor), class: 'btn btn-secondary' %>
+            <%= link_to 'Delete', doctor, data: { turbo_method: :delete, turbo_confirm: 'Are ou sure?' }, class: 'btn btn-secondary' %>
+          </td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "New doctor", new_doctor_path, class: 'btn btn-secondary' %>
+</div>

@@ -1,0 +1,30 @@
+
+<%= simple_form_for(@patient) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="field form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class:"form-control" %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :birthday %>
+    <%= f.date_field :birthday, class:"form-control" %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :cpf %>
+    <%= f.text_field :cpf, class:"form-control" %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :adress %>
+    <%= f.text_field :adress, class:"form-control" %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :phone %>
+    <%= f.text_field :phone, class:"form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>

@@ -1,0 +1,38 @@
+<div>
+  <div>
+  <br><br>
+  
+    <p>Name:</>
+    <%= @doctor.name %>
+    <br>
+  
+    <p>Birthday:</>
+    <%= @doctor.birthday %>
+    <br>
+  
+    <p>Cpf:</>
+    <%= @doctor.cpf %>
+    <br>
+  
+    <p>Adress:</>
+    <%= @doctor.adress %>
+    <br>
+  
+    <p>Phone:</>
+    <%= @doctor.phone %>
+    <br>
+  
+    <p>Clinic:</>
+    <%= @doctor.clinic %>
+    <br>
+  
+    <p>Crm:</>
+    <%= @doctor.crm %>
+    <br>
+  
+  </div>
+  <div>
+    <%= link_to 'Edit', edit_doctor_path(@doctor), class: 'btn btn-secondary' %>
+    <%= link_to 'Delete', @doctor, data: { turbo_method: :delete, turbo_confirm: 'Are ou sure?' }, class: 'btn btn-secondary' %>
+  </div>
+</div>

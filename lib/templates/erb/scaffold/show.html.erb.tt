@@ -1,0 +1,14 @@
+<div>
+  <div>
+  <br><br>
+  <% attributes.each do |attribute| %>
+    <p><%= attribute.human_name %>:</>
+    <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+    <br>
+  <% end %>
+  </div>
+  <div>
+    <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-secondary' %>
+    <%%= link_to 'Delete', @<%= singular_table_name %>, data: { turbo_method: :delete, turbo_confirm: 'Are ou sure?' }, class: 'btn btn-secondary' %>
+  </div>
+</div>

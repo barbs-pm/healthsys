@@ -1,0 +1,20 @@
+
+<%= simple_form_for(@appointment) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="field form-group">
+    <%= f.label :hour %>
+    <%= f.datetime_local_field :hour, class:"form-control" %>
+  </div>
+  <div class="field form-group">
+    <%= f.association :doctor, class:"form-select" %>
+  </div>
+  <div class="field form-group">
+    <%= f.association :patient, class:"form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>

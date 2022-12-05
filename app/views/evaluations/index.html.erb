@@ -1,0 +1,38 @@
+<h3>
+  <div>
+    <br>
+    Evaluations (<%= @evaluations.count %>)
+  </div>
+</h3>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+    	  
+        <th scope="col">Appointment</th>
+        
+        <th scope="col">Opinion</th>
+        
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @evaluations.each do |evaluation| %>
+        <%= content_tag :tr, id: dom_id(evaluation), class: dom_class(evaluation) do %>
+          <td><%= link_to evaluation.id, evaluation %></td>
+          
+            <td><%= evaluation.appointment %></td>
+          
+            <td><%= evaluation.opinion %></td>
+          
+          <td>
+            <%= link_to 'Edit', edit_evaluation_path(evaluation), class: 'btn btn-secondary' %>
+            <%= link_to 'Delete', evaluation, data: { turbo_method: :delete, turbo_confirm: 'Are ou sure?' }, class: 'btn btn-secondary' %>
+          </td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "New evaluation", new_evaluation_path, class: 'btn btn-secondary' %>
+</div>
